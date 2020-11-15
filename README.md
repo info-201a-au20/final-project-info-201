@@ -63,7 +63,7 @@ It is compiled by the Washington State Energy Office. This office advises policy
   + Number of columns: 6 (Sheet YT01)
 
 
- + Source: See "Energy" in *datasets*
+ + Source: See "Energy" in *data*
 
 2. [**Washington Primary Energy Consumption Estimates, 2018**](https://www.eia.gov/state/seds/data.php?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&sid=US&sid=WA)
 
@@ -80,7 +80,7 @@ This information was collected by the US Energy Information Administration (EIA)
   + Number of columns: 28
 
 
- + Source: See "Primary Energy Consumption Estimates, 2018" in *datasets*
+ + Source: See "Primary Energy Consumption Estimates, 2018" in *data*
 
 3. [**Emissions & Generation Resource Integrated Database, 2018**](https://www.eia.gov/state/seds/data.php?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&sid=US&sid=WA)
 
@@ -98,4 +98,4 @@ The US Protection Agency collected the data. It is an executive agency concerned
  + Number of columns: 32 (Sheet UNT18)
 
 
-+ Source: See "egrid2018_data_v2" in *datasets*
++ Source: See "egrid2018_data_v2" in *data*
