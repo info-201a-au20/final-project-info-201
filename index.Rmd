@@ -6,7 +6,9 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
+options(repos = "https://cran.rstudio.com")
 knitr::opts_chunk$set(echo = TRUE)
+source("table2.R")
 ```
 
 ## Introduction Paragraph
@@ -18,3 +20,6 @@ For our project, we will be examining renewable energy information in Washington
 ## Aggregated Data
 
 ## Three Charts
+```{r echo = FALSE}
+p
+```
