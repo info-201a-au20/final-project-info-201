@@ -39,7 +39,7 @@ type <- c(rep("Washington", 10), rep("US Average", 10))
 data <- data.frame(xaxis, values, type)
 
 p <- ggplot(data, aes(values, xaxis))
-p + geom_bar(stat = "identity", aes(fill = type), position = "dodge") +
+p <- p + geom_bar(stat = "identity", aes(fill = type), position = "dodge") +
   xlab("Renewable Energy Types") + ylab("Consumption") +
   ggtitle("Comparison of renewable energy consumption of Washington vs US Average") +
   theme_bw()
