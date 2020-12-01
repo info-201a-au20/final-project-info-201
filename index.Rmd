@@ -8,6 +8,7 @@ output: html_document
 ```{r setup, include=FALSE}
 options(repos = "https://cran.rstudio.com")
 knitr::opts_chunk$set(echo = TRUE)
+source("~/uw2020/info201/final-project-info-201/scripts/summary_info.R")
 source("table2.R")
 ```
 
@@ -20,6 +21,9 @@ For our project, we will be examining renewable energy information in Washington
 ## Aggregated Data
 
 ## Three Charts
+
+Bar plot
 ```{r echo = FALSE}
 p
 ```
+
