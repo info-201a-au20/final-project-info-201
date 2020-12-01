@@ -78,3 +78,7 @@ Bar plot
 p
 ```
 
+```{r echo = FALSE}
+map_recp
+```
+
