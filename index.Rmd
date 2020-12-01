@@ -1,9 +1,5 @@
 ---
-title: "index.Rmd"
-author: "Kenny"
-date: "11/29/2020"
-output: html_document
-
+title: "Midpoint"
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
