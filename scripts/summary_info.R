@@ -138,4 +138,3 @@ get_summary_info <- function(elec_supply_wa, energy_consum_state) {
   ret
 }
 
-info <- get_summary_info(elec_supply_wa,energy_consum_state)  
