@@ -1,9 +1,9 @@
 #install.packages("kableExtra")
 library("kableExtra")
 
-energy_supp_by_src <- read.csv("../data/electicity_supply_by_fuel_source_clean.csv", stringsAsFactors = FALSE)
-energy_supp_per_state <- read.csv("../data/energy_consumption_per_state_2018_clean.csv", stringsAsFactors = FALSE)
-energy_supp_USA <- read.csv("../data/primary_energy_consumption_by_energy_source_clean.csv", stringsAsFactors = FALSE)
+energy_supp_by_src <- read.csv("data/electicity_supply_by_fuel_source_clean.csv", stringsAsFactors = FALSE)
+energy_supp_per_state <- read.csv("data/energy_consumption_per_state_2018_clean.csv", stringsAsFactors = FALSE)
+energy_supp_USA <- read.csv("data/primary_energy_consumption_by_energy_source_clean.csv", stringsAsFactors = FALSE)
 
 energy_by_src_WA <- function(dataset) {
   library("dplyr", warn.conflicts = FALSE)
