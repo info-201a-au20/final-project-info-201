@@ -8,7 +8,6 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 source("scripts/summary_info.R")
-source("scripts/aggregate_table.R")
 ```
 
 ## Introduction Paragraph
@@ -67,7 +66,88 @@ average, and renewable energy consumption per total energy consumption is only
 slightly lower than that of Oregon, which has the highest. Hence, we can see 
 that the Washington population is more than willing to move towards renewable
 energy means and practices.
+```{r, echo=FALSE, include=FALSE}
+source("scripts/aggregate_table.R")
+```
 
 ## Aggregated Data
+#### Table 1: *Energy Consumption Percentages in WA 2000 - 2017*
+```{r,echo=FALSE}
+library("kableExtra")
+kable(a, digits = 2, format = "html", row.names = FALSE) %>%
+  kable_styling(bootstrap_options = c("striped"),
+                full_width = F,
+                font_size = 12,
+                position = "left") %>%
+  scroll_box(height = "300px")
+```
+`*This table assumes that all forms of sun, wind, water, waste, and biomass energy sources are renewable.
+
+Over the course of 17 years, Washington's renewable energy sources (excluding hydropower) generated a <20% of the state's energy. The table reveals that without hydropower, Washington can only sustain <5% of Washington's energy requirement. This information is important as Gov. Jay Inslee pledged that Washington would achieve 100% carbon-neutral power by 2030. Without hydropower, Washington would have to look increase energy development efforts and look for alternative sources of power.
+
+
+
+#### Table 2: *Energy Consumption Percentages in individual US States 2018*
+This table assumes that all forms of sun, wind, water, and biomass energy sources are renewable.
+```{r, echo=FALSE}
+library("kableExtra")
+kable(b, digits = 2, format = "html", row.names = FALSE) %>%
+  kable_styling(bootstrap_options = c("striped"),
+                full_width = F,
+                font_size = 12,
+                position = "left") %>%
+  scroll_box(height = "300px")
+```
+
+In 2018, the United States evaluated the amount of energy used by each state by British thermal units (BTU). There is no dominant renewable energy source type as energy produced by biomass and WWS are to some use in all states. The same idea applies to petroleum usage and other nonrenewable energy sources. The table reveals that nuclear energy is larger in larger states. In the entire continent, Mississippi (3.62%) had the least amount of its energy produced by renewable sources and Oregon (44.44%) with the most renewable energy.
+
+
+
+#### Table 3: *Energy Consumption Percentages in the USA 2018*
+```{r,echo=FALSE}
+library("kableExtra")
+kable(c, digits = 2, format = "html", row.names = FALSE) %>%
+  kable_styling(bootstrap_options = c("striped"),
+                full_width = F,
+                font_size = 12,
+                position = "left") %>%
+  scroll_box(height = "300px")
+```
+This table tracks the energy consumption per billion BTUs. Over the last 30 years it is observed that the US's renewable energy production fluctuates around the 20-30% range (see percentage renewable energy (out of total)). The renewable energy consupmtion grows relative to the increase in total energy consumption. Nuclear energy consumption is comparable to biomass energy consumption, whereas wind, water and sun energy (WWS) consumption is greater than both. The US may shift their focus to expanding multiple energy sources like nuclear energy and WWS to meet and hopefully completely fulfill the growing demand for energy.
+
+
 
 ## Three Charts
+
+### 1. Scatter plot of Washington's Energy Usage per Type from 2001 - 2017
+```{r, echo=FALSE}
+source("scripts/chart_1.R")
+```
+
+The scatter plot precisely tracks the trend of both nonrenewable and renewable energy consumption in WA to see whether sufficients improvements have been made. We are making this chart to verify whether Washington is on track to achieve 100% carbon-neutral power by 2030. The plot depicts an increase in renewable energy sources, however, it flatlines from 2013-2017. Renewable energy points are seen to have a steady increase in 2015-2017. The trend line hints that renewable energy production is increasing, but steadily.
+
+### 2. Grouped Bar plot of Washington vs US Average's renewable energy consumption
+```{r, echo=FALSE}
+source("scripts/chart_2.R")
+chart2 <- chart_2(energy_consumption_per_state)
+chart2
+```
+
+I used a grouped bar plot of Washington vs US average(without Washington)'s
+renewable energy consumption since we wanted to know how Washington was doing
+and if we were on course with our consumption of renewable energy compared to
+the rest of the states.It could be easily observed that Washington on average
+uses more renewable energy.
+
+### 3. Map of renewable energy consumption percentage
+```{r, echo=FALSE}
+source("scripts/chart_3.R")
+chart3 <- draw_map(energy_per_state)
+chart3
+```
+
+I used a map to show the percentage renewable energy is being consumed by each
+state since I thought it would be visually easier to see and compare each
+state. It could be seen from the map that Washington has one of the highest
+percentage of renewable energy usage in the United States. Each blue circle
+has a pop-up which you can click to see the exact percentage.
