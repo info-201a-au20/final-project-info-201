@@ -1,36 +1,28 @@
 library("ggplot2")
-# Reference plot_3
-#
-# The scatter plot precisely tracks the trend of both nonrenewable and renewable energy consumption in WA to see whether sufficients improvements have been made.
-# We are doing this to verify whether Washington is on track to achieve 100% carbon-neutral power by 2030.
-# The plot depicts an increase in renewable energy sources, however,
-# it flatlines from 2013-2017. Renewable energy points are seen to have a steady increase in 2015-2017. The trend line hints that renewable energy production is increasing, but steadily.
-
 rm(list = ls())
 
-energy_per_src_wa <- read.csv("
-  data/energy_consumption_per_state_2018_clean.csv",
-  stringsAsFactors = FALSE
-)
+energy_per_src_wa <- read.csv("data/electicity_supply_by_fuel_source_clean.csv",
+  stringsAsFactors = FALSE)
+
 
 # table 3. Drawing trendline for R purposes
 energy_per_src_wa <- energy_per_src_wa %>%
   mutate(target_2030 = 1) %>%
   rowwise(Year) %>%
-  mutate("NE_Consumed" = sum(Coal, Natural_Gas, 
+  mutate("NE_Consumed" = sum(Coal, Natural_Gas,
                              Nuclear, Petroleum)) %>%
-  mutate("RE_Consumed_w_Hydro" = sum(Hydropower, Biomass, 
+  mutate("RE_Consumed_w_Hydro" = sum(Hydropower, Biomass,
                             Wind, Other_Renewables, Waste)) %>%
-  mutate("RE_Consumed_w_o_Hydro" = sum(Biomass, Wind, 
+  mutate("RE_Consumed_w_o_Hydro" = sum(Biomass, Wind,
                             Other_Renewables, Waste)) %>%
   mutate("NE_Percent" = ((NE_Consumed / Total))) %>%
-  mutate("RE_Percent_w_o_Hydro" = ((sum(Biomass, Wind, 
-                          Other_Renewables, Waste) / Total))) %>%
-  mutate("RE_Percent_w_Hydro" = (RE_Consumed / Total))
+  mutate("RE_Percent_w_o_Hydro" = (sum(Biomass, Wind,
+                                       Other_Renewables, Waste) / Total)) %>%
+  mutate("RE_Percent_w_Hydro" = (RE_Consumed_w_Hydro / Total))
 
 
   
-  colors <- c("Renewable Energy w/ Hydro" = "darkgreen", 
+  colors <- c("Renewable Energy w/ Hydro" = "darkgreen",
            "Nonrenewable Energy" = "red")
   plot_3 <- ggplot(energy_per_src_wa, aes(x = Year)) +
   geom_point(aes(y = RE_Percent_w_Hydro, color =

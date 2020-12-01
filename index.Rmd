@@ -122,6 +122,7 @@ This table tracks the energy consumption per billion BTUs. Over the last 30 year
 ### 1. Scatter plot of Washington's Energy Usage per Type from 2001 - 2017
 ```{r, echo=FALSE}
 source("scripts/chart_1.R")
+plot(plot_3)
 ```
 
 The scatter plot precisely tracks the trend of both nonrenewable and renewable energy consumption in WA to see whether sufficients improvements have been made. We are making this chart to verify whether Washington is on track to achieve 100% carbon-neutral power by 2030. The plot depicts an increase in renewable energy sources, however, it flatlines from 2013-2017. Renewable energy points are seen to have a steady increase in 2015-2017. The trend line hints that renewable energy production is increasing, but steadily.
