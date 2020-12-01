@@ -6,9 +6,15 @@ output: html_document
 
 ---
 ```{r setup, include=FALSE}
+<<<<<<< HEAD
 source("summary_info.R" )
 knitr::opts_chunk$set(echo = TRUE)
 source("scripts/summary_info.R")
+=======
+options(repos = "https://cran.rstudio.com")
+knitr::opts_chunk$set(echo = TRUE)
+source("table2.R")
+>>>>>>> 24407b525db84640d4a777e14f00aa9921489fa2
 ```
 
 ## Introduction Paragraph
@@ -70,3 +76,6 @@ energy means and practices.
 ## Aggregated Data
 
 ## Three Charts
+```{r echo = FALSE}
+p
+```
