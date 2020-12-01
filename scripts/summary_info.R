@@ -124,17 +124,16 @@ get_summary_info <- function(elec_supply_wa, energy_consum_state) {
         na.rm = TRUE
       )
     )
-  
+
   # Washington Energy Consumption Statistics
-  
+
   ret$wa_consum_stats <- ren_consum_per_total %>%
     filter(State == "Washington") %>%
     summarise(
       wa_total_consumption = total_consumption,
       wa_ren_consum_per_total = ren_consum_per_total,
       wa_total_ren_consum = Total_Renewable_Energy
-      )
-  
+    )
+
   ret
 }
-
