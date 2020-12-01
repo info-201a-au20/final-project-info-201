@@ -1,4 +1,7 @@
-library("ggplot2")
+# exhausted all options to suppress ggplot warning. unable to solve.
+library("ggplot2", warn.conflicts = FALSE)
+options(ggplot2.summarise.inform = FALSE)
+options(warn = -1)
 rm(list = ls())
 
 energy_per_src_wa <- read.csv("data/electicity_supply_by_fuel_source_clean.csv",
@@ -6,22 +9,23 @@ energy_per_src_wa <- read.csv("data/electicity_supply_by_fuel_source_clean.csv",
 
 
 # table 3. Drawing trendline for R purposes
-energy_per_src_wa <- energy_per_src_wa %>%
-  mutate(target_2030 = 1) %>%
-  rowwise(Year) %>%
-  mutate("NE_Consumed" = sum(Coal, Natural_Gas,
-                             Nuclear, Petroleum)) %>%
-  mutate("RE_Consumed_w_Hydro" = sum(Hydropower, Biomass,
-                            Wind, Other_Renewables, Waste)) %>%
-  mutate("RE_Consumed_w_o_Hydro" = sum(Biomass, Wind,
-                            Other_Renewables, Waste)) %>%
-  mutate("NE_Percent" = ((NE_Consumed / Total))) %>%
-  mutate("RE_Percent_w_o_Hydro" = (sum(Biomass, Wind,
-                                       Other_Renewables, Waste) / Total)) %>%
-  mutate("RE_Percent_w_Hydro" = (RE_Consumed_w_Hydro / Total))
+chart_1 <- function(energy_per_src_wa) {
+  energy_per_src_wa <-
+    energy_per_src_wa %>%
+    mutate(target_2030 = 1) %>%
+    rowwise(Year) %>%
+    mutate("NE_Consumed" = sum(Coal, Natural_Gas,
+                               Nuclear, Petroleum)) %>%
+    mutate("RE_Consumed_w_Hydro" = sum(Hydropower, Biomass,
+                              Wind, Other_Renewables, Waste)) %>%
+    mutate("RE_Consumed_w_o_Hydro" = sum(Biomass, Wind,
+                              Other_Renewables, Waste)) %>%
+    mutate("NE_Percent" = ((NE_Consumed / Total))) %>%
+    mutate("RE_Percent_w_o_Hydro" = (sum(Biomass, Wind,
+                                         Other_Renewables, Waste) / Total)) %>%
+    mutate("RE_Percent_w_Hydro" = (RE_Consumed_w_Hydro / Total))
 
 
-  
   colors <- c("Renewable Energy w/ Hydro" = "darkgreen",
            "Nonrenewable Energy" = "red")
   plot_3 <- ggplot(energy_per_src_wa, aes(x = Year)) +
@@ -40,3 +44,5 @@ energy_per_src_wa <- energy_per_src_wa %>%
   ggtitle("Annual Energy Consumed in WA per Type (%)") +
   scale_x_continuous(limits = c(2001, 2017)) +
   scale_y_continuous(limits = c(0, 1))
+  return(plot_3)
+}

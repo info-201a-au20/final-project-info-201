@@ -76,9 +76,9 @@ energy_by_src_states <- function(dataset) {
                                                 Coal, Nuclear_Electric_Power,
                     tural_Gas, na.rm = TRUE)), 4)) %>%
     mutate("Percentage Nonrenewable Energy - Coal + Natural Gas" =
-             round((100 * `Nonrenewable Energy Consumed -
-                      Coal + Natural Gas` / sum(Total_Petroleum, Coal,
-                      Nuclear_Electric_Power, tural_Gas,
+             round((100 * `Nonrenewable Energy Consumed - Coal + Natural Gas`
+            / sum(Total_Petroleum, Coal,
+            Nuclear_Electric_Power, tural_Gas,
                                                 na.rm = TRUE)), 4)) %>%
     mutate("Percentage Nonrenewable Energy - Nuclear" =
              round((100 * Nuclear_Electric_Power / sum(Total_Petroleum,
@@ -87,45 +87,41 @@ energy_by_src_states <- function(dataset) {
     mutate("Percentage Renewable Energy - Biomass" =
              round((100 * Total_Biomass / Total_Renewable_Energy), 4)) %>%
     mutate("Percentage Renewable Energy - WWS" =
-             round((100 * `Renewable Energy - Wind, Water,
-                    and Sun (WWS)` / Total_Renewable_Energy), 4)) %>%
-    mutate("Percentage Renewable Energy (out of Total Energy Usage)
-           - Biomass" = round((100 * Total_Biomass / sum(
+             round((100 *
+                    `Renewable Energy - Wind, Water, and Sun (WWS)`
+                    / Total_Renewable_Energy), 4)) %>%
+    mutate("Percentage Renewable Energy (out of Total Energy Usage) - Biomass" =
+             round((100 * Total_Biomass / sum(
              Total_Petroleum, Coal, Nuclear_Electric_Power,
              Total_Renewable_Energy, tural_Gas, na.rm = TRUE)), 4)) %>%
-    mutate("Percentage Renewable Energy (out of Total Energy Usage)
-           - WWS" = round((100 * `Renewable Energy - Wind, Water,
-                           and Sun (WWS)` / sum(Total_Petroleum, Coal,
+    mutate("Percentage Renewable Energy (out of Total Energy Usage) - WWS" =
+             round((100 *
+                    `Renewable Energy - Wind, Water, and Sun (WWS)`
+                    / sum(Total_Petroleum, Coal,
                              Nuclear_Electric_Power, Total_Renewable_Energy,
                              tural_Gas, na.rm = TRUE)), 4)) %>%
     mutate("Percentage Renewable Energy (out of Total Energy Usage)"
-           = sum(`Percentage Renewable Energy (out of Total Energy Usage)
-                  - WWS`, `Percentage Renewable Energy
-                  (out of Total Energy Usage)
-                  - Biomass`, na.rm = TRUE)) %>%
+           = sum(
+    `Percentage Renewable Energy (out of Total Energy Usage) - WWS`,
+    `Percentage Renewable Energy (out of Total Energy Usage) - Biomass`,
+                 na.rm = TRUE)) %>%
     summarize(
       `Nonrenewable Energy Consumed - Petroleum`,
-      `Nonrenewable Energy Consumed - Coal +
-        Natural Gas`,
+      `Nonrenewable Energy Consumed - Coal + Natural Gas`,
       `Nonrenewable Energy Consumed - Nuclear`,
       `Renewable Energy - Biomass`,
       `Renewable Energy - Wind, Water, and Sun (WWS)`,
-      `Percentage Renewable Energy (out of Total
-                                    Energy Usage) - Biomass`,
-      `Percentage Renewable Energy (out of Total
-                                    Energy Usage) - WWS`,
-      `Percentage Renewable Energy (out of Total
-                                    Energy Usage)`,
+      `Percentage Renewable Energy (out of Total Energy Usage) - Biomass`,
+      `Percentage Renewable Energy (out of Total Energy Usage) - WWS`,
+      `Percentage Renewable Energy (out of Total Energy Usage)`,
       `Percentage Nonrenewable Energy - Petroleum`,
-      `Percentage Nonrenewable Energy - Coal +
-        Natural Gas`,
+      `Percentage Nonrenewable Energy - Coal + Natural Gas`,
       `Percentage Nonrenewable Energy - Nuclear`,
       `Percentage Renewable Energy - Biomass`,
       `Percentage Renewable Energy - WWS`
     )
 }
 
-library("kableExtra")
 b <- energy_by_src_states(energy_supp_per_state)
 kable(b, digits = 2, format = "html", row.names = FALSE) %>%
   kable_styling(
@@ -155,8 +151,8 @@ energy_by_src_usa <- function(dataset) {
              round((100 * Petroleum / sum(Coal, Nuclear_Electricity,
                   Natural_Gas, Petroleum, na.rm = TRUE)), 4)) %>%
     mutate("Percentage Nonrenewable Energy - Coal + Natural Gas" =
-             round((100 * `Nonrenewable Energy Consumed - Coal +
-                      Natural Gas` / sum(Coal, Nuclear_Electricity,
+             round((100 * `Nonrenewable Energy Consumed - Coal + Natural Gas`
+                    / sum(Coal, Nuclear_Electricity,
                       Natural_Gas, Petroleum, na.rm = TRUE)), 4)) %>%
     mutate("Percentage Nonrenewable Energy - Nuclear" =
              round((100 * Nuclear_Electricity / sum(Coal,
@@ -169,37 +165,34 @@ energy_by_src_usa <- function(dataset) {
             * `Renewable Energy - Wind, Water, and Sun (WWS)`
             / sum(Biomass,
                   Hydro_Electricity, Other_Renewables, na.rm = TRUE)), 4)) %>%
-    mutate("Percentage Renewable Energy (out of Total Energy Usage)
-           - Biomass" = round((100 * Biomass / sum(Coal,
+    mutate("Percentage Renewable Energy (out of Total Energy Usage) - Biomass"
+           = round((100 * Biomass / sum(Coal,
                                                    Nuclear_Electricity,
                                Natural_Gas, Petroleum, Biomass,
                                Hydro_Electricity,
                                Other_Renewables, na.rm = TRUE)), 4)) %>%
-    mutate("Percentage Renewable Energy (out of Total Energy Usage)
-           - WWS" = round((100 * `Renewable Energy -
-                           Wind,
-                           Water, and Sun (WWS)` / sum(Coal,
+    mutate(
+    "Percentage Renewable Energy (out of Total Energy Usage) - WWS"
+           = round((100 *
+                    `Renewable Energy - Wind, Water, and Sun (WWS)`
+                           / sum(Coal,
                            Nuclear_Electricity,
                           Natural_Gas, Petroleum, Biomass,
                           Hydro_Electricity, Other_Renewables,
                           na.rm = TRUE)), 4)) %>%
-    mutate("Percentage Renewable Energy (out of Total
-            Energy Usage)" = sum(`Percentage Renewable
-                                  Energy (out of Total Energy Usage)
-                    - WWS`, `Percentage Renewable Energy
-                             (out of Total Energy Usage)
-                    - Biomass`, na.rm = TRUE)) %>%
+    mutate("Percentage Renewable Energy (out of Total Energy Usage)"
+           = sum(
+            `Percentage Renewable Energy (out of Total Energy Usage) - WWS`,
+            `Percentage Renewable Energy (out of Total Energy Usage) - Biomass`,
+                                  na.rm = TRUE)) %>%
     summarize(
       `Nonrenewable Energy Consumed - Petroleum`,
-      `Nonrenewable Energy Consumed - Coal +
-        Natural Gas`,
+      `Nonrenewable Energy Consumed - Coal + Natural Gas`,
       `Nonrenewable Energy Consumed - Nuclear`,
       `Renewable Energy - Biomass`,
       `Renewable Energy - Wind, Water, and Sun (WWS)`,
-      `Percentage Renewable Energy (out of Total Energy Usage)
-      - Biomass`,
-      `Percentage Renewable Energy (out of Total Energy Usage)
-      - WWS`,
+      `Percentage Renewable Energy (out of Total Energy Usage) - Biomass`,
+      `Percentage Renewable Energy (out of Total Energy Usage) - WWS`,
       `Percentage Renewable Energy (out of Total Energy Usage)`,
       `Percentage Nonrenewable Energy - Petroleum`,
       `Percentage Nonrenewable Energy - Coal + Natural Gas`,
