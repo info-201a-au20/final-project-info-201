@@ -113,7 +113,7 @@ get_summary_info <- function(elec_supply_wa, energy_consum_state) {
       percent = ren_consum_per_total
     )
 
-  # Average US Renewable and Fossil Fuel Energy Consumption (in BTUs)
+  # Average US Renewable and Fossil Fuel Energy Consumption (in BTUs/state)
 
   ret$consum_us <- ren_consum_per_total %>%
     summarise(
@@ -124,7 +124,16 @@ get_summary_info <- function(elec_supply_wa, energy_consum_state) {
         na.rm = FALSE
       )
     )
+  
+  # Washington Energy Consumption Statistics
+  
+  ret$wa_consum_stats <- ren_consum_per_total %>%
+    filter(State == "Washington") %>%
+    summarise(
+      wa_total_consumption = total_consumption,
+      wa_ren_consum_per_total = ren_consum_per_total,
+      wa_total_ren_consum = Total_Renewable_Energy
+      )
+  
   ret
 }
-
-trial <- get_summary_info(elec_supply_wa, energy_consum_state)
