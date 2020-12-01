@@ -3,8 +3,8 @@ title: "index.Rmd"
 author: "Kenny"
 date: "11/29/2020"
 output: html_document
----
 
+---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 source("scripts/summary_info.R")
@@ -14,12 +14,12 @@ source("scripts/summary_info.R")
 
 For our project, we will be examining renewable energy information in Washington State with comparisons from data sets of national averages. In our summary information section, we include: raw data regarding the electricity supply in Washington State, sectors of energy consumption in Washington State, energy consumption per state in 2018, energy expenditure numbers in Washington State, and electricity prices by sector. With these data sets, we will examine three variables: the average annual rate of change of energy resources in Washington State, the percent change of energy consumption of any source, and the highest energy supply source in a given year in Washington. We will turn these variables into data three data visualization including: Washington’s goal with the present energy levels, Washington’s renewable energy consumption compared to other states in the U.S., and the trend of renewable energy in Washington over the years.
 
-# Summary
+## Summary
 ```{r get_summary_info, echo=FALSE}
 info <- get_summary_info(elec_supply_wa, energy_consum_state)
 ```
 
-### How committed is Washington Government towards Renewable Energy?
+### How committed is the Washington Government towards Renewable Energy?
 
 Since 2001, Washington State had the highest share of renewable electricity
 supply out of total electricity supply in
@@ -70,3 +70,4 @@ energy means and practices.
 ## Aggregated Data
 
 ## Three Charts
+
