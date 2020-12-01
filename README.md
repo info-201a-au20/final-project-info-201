@@ -99,30 +99,3 @@ The US Protection Agency collected the data. It is an executive agency concerned
 
 
 + Source: See "egrid2018_data_v2" in *data*
-
-
-### 2. Grouped Bar plot of Washington vs US Average's renewable energy consumption
-```{r, echo=FALSE}
-source("scripts/chart_2.R")
-chart2 <- chart_2(energy_consumption_per_state)
-chart2
-```
-
-I used a grouped bar plot of Washington vs US average(without Washington)'s
-renewable energy consumption since we wanted to know how Washington was doing
-and if we were on course with our consumption of renewable energy compared to
-the rest of the states.It could be easily observed that Washington on average
-uses more renewable energy.
-
-### 3. Map of renewable energy consumption percentage
-```{r, echo=FALSE}
-source("scripts/chart_3.R")
-chart3 <- draw_map(energy_per_state)
-chart3
-```
-
-I used a map to show the percentage renewable energy is being consumed by each
-state since I thought it would be visually easier to see and compare each
-state. It could be seen from the map that Washington has one of the highest
-percentage of renewable energy usage in the United States. Each blue circle
-has a pop-up which you can click to see the exact percentage.
