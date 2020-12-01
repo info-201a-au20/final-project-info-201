@@ -41,4 +41,7 @@ chart_2 <- function(energy_consumption_per_state_all_2018) {
     theme_bw()
   return(p)
 }
-
+# I used a grouped bar plot of Washington vs US average(without Washington)'s 
+# renewable energy consumption since we wanted to know how Washington was doing
+# and if we were on course with our consumption of renewable energy compared to 
+# the rest of the states. 
