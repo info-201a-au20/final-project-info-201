@@ -9,8 +9,10 @@ output: html_document
 source("scripts/summary_info.R")
 knitr::opts_chunk$set(echo = TRUE)
 options(repos = "https://cran.rstudio.com")
-source("table2.R")
-
+source("scripts/chart1")
+source("scripts/chart2")
+knitr::opts_chunk$set(echo = TRUE)
+source("scripts/summary_info.R")
 ```
 
 ## Introduction Paragraph
@@ -21,6 +23,7 @@ For our project, we will be examining renewable energy information in Washington
 ```{r echo=FALSE}
 info
 ```
+
 ### How committed is the Washington Government towards Renewable Energy?
 
 Since 2001, Washington State had the highest share of renewable electricity
@@ -31,11 +34,11 @@ it had the lowest share of renewable electricity supply out of total electricity
 supply in `r info$ren_elec_supply_wa_min$min_share_year` at
 `r info$ren_elec_supply_wa_min$Share` percent. This shows how quickly the share
 of renewable electricity supply out of total electricity supply in Washington
-State can change within a span of a year. Hence, to properly evaluate the
+State can change within a span of an year. Hence, to properly evaluate the
 Washington State's commitment towards renewable energy, the average share over
 2001-2018 gives a better indication than the highest and lowest amounts. At
 `r info$avg_elec_ren_supply_share_wa$avg_share` percent, we can say that the
-the state's commitment towards renewable energy has been moderate, since the amount
+state's commitment towards renewable energy has been moderate, since the amount
 is right in between the highest and lowest percentages.
 
 ### How do Americans view Renewable Energy?
@@ -54,7 +57,7 @@ understanding as to how the people of each state view renewable energy. Now,
 `r info$low_ren_cons_per_total$lowest_state` is still the lowest at
 `r info$low_ren_cons_per_total$percent` percent.
 
-### Where do Washingtonians stand in terms of Renewable Energy, relative to The United States?
+### Where do Washingtonians stand in terms on Renewable Energy, relative to The United States?
 
 The average US Renewable and Fossil Fuel Energy Consumption in 2018 was
 `r info$consum_us$avgbtu_renew_consum` and
@@ -65,20 +68,11 @@ energy consumption per total energy consumption standing at
 `r info$wa_consum$wa_ren_consum_per_total` percent. Here we can clearly see that
 renewable energy consumption in Washington is much higher than the national
 average, and renewable energy consumption per total energy consumption is only
-slightly lower than that of Oregon, which has the highest. Hence, we can see
+slightly lower than that of Oregon, which has the highest. Hence, we can see 
 that the Washington population is more than willing to move towards renewable
 energy means and practices.
 
 ## Aggregated Data
 
 ## Three Charts
-
-Bar plot
-```{r echo = FALSE}
-p
-```
-
-```{r echo = FALSE}
-map_recp
-```
 
