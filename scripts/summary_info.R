@@ -36,7 +36,7 @@ get_summary_info <- function(elec_supply_wa, energy_consum_state) {
   # electricity supply (Washington State)
 
   ret$ren_elec_supply_wa_max <- renewable_share_col_wa %>%
-    filter(renewable_share == max(renewable_share, na.rm = FALSE)) %>%
+    filter(renewable_share == max(renewable_share, na.rm = TRUE)) %>%
     summarise(
       max_share_year = Year,
       Share = renewable_share
@@ -46,7 +46,7 @@ get_summary_info <- function(elec_supply_wa, energy_consum_state) {
   # electricity supply (Washington State)
 
   ret$ren_elec_supply_wa_min <- renewable_share_col_wa %>%
-    filter(renewable_share == min(renewable_share, na.rm = FALSE)) %>%
+    filter(renewable_share == min(renewable_share, na.rm = TRUE)) %>%
     summarise(
       min_share_year = Year,
       Share = renewable_share
@@ -71,7 +71,7 @@ get_summary_info <- function(elec_supply_wa, energy_consum_state) {
 
   ret$highest_ren_consum_us <- ren_consum_per_total %>%
     filter(Total_Renewable_Energy == max(Total_Renewable_Energy,
-      na.rm = FALSE
+      na.rm = TRUE
     )) %>%
     summarize(
       highest_ren_state = State,
@@ -82,7 +82,7 @@ get_summary_info <- function(elec_supply_wa, energy_consum_state) {
 
   ret$lowest_ren_consum_us <- ren_consum_per_total %>%
     filter(Total_Renewable_Energy == min(Total_Renewable_Energy,
-      na.rm = FALSE
+      na.rm = TRUE
     )) %>%
     summarise(
       lowest_ren_state = State,
@@ -94,7 +94,7 @@ get_summary_info <- function(elec_supply_wa, energy_consum_state) {
 
   ret$high_ren_cons_per_total <- ren_consum_per_total %>%
     filter(ren_consum_per_total == max(ren_consum_per_total,
-      na.rm = FALSE
+      na.rm = TRUE
     )) %>%
     summarize(
       highest_state = State,
@@ -106,7 +106,7 @@ get_summary_info <- function(elec_supply_wa, energy_consum_state) {
 
   ret$low_ren_cons_per_total <- ren_consum_per_total %>%
     filter(ren_consum_per_total == min(ren_consum_per_total,
-      na.rm = FALSE
+      na.rm = TRUE
     )) %>%
     summarize(
       lowest_state = State,
@@ -118,10 +118,10 @@ get_summary_info <- function(elec_supply_wa, energy_consum_state) {
   ret$consum_us <- ren_consum_per_total %>%
     summarise(
       avgbtu_renew_consum = mean(Total_Renewable_Energy,
-        na.rm = FALSE
+        na.rm = TRUE
       ),
       avgbtu_fossil_consum = mean(Total_fossil_fuels,
-        na.rm = FALSE
+        na.rm = TRUE
       )
     )
   
@@ -137,3 +137,5 @@ get_summary_info <- function(elec_supply_wa, energy_consum_state) {
   
   ret
 }
+
+info <- get_summary_info(elec_supply_wa,energy_consum_state)  
