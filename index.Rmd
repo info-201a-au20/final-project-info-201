@@ -6,9 +6,23 @@ knitr::opts_chunk$set(echo = TRUE)
 source("scripts/summary_info.R")
 ```
 
-## Introduction Paragraph
+## Introduction
 
-For our project, we will be examining renewable energy information in Washington State with comparisons from data sets of national averages. In our summary information section, we include raw data regarding the electricity supply in Washington State and the energy consumption per state in the United States in 2018. With these data sets, we examine how committed the Washington Government is towards Renewable Energy, how Americans in general view it, and how Washingtonians see it in the summary section. We will turn this information into three data visualization including: Washington’s goal with the present energy levels, Washington’s renewable energy consumption compared to other states in the U.S., and the trend of renewable energy in Washington over the years.
+For our project, we will be examining renewable energy information in Washington
+State with comparisons from data sets of national averages. In our summary
+section, we include raw data regarding the electricity supply in Washington
+State and the energy consumption per state in the United States in 2018.
+With these data sets, we examine how committed the Washington Government is
+towards Renewable Energy, how Americans in general view it, and how
+Washingtonians see it. Then, we look at three aggregate tables. The first table
+explains the energy consumption in Washington state through 2000-2017. The
+second table takes a deeper look into the energy consumption pattern in every US
+state in the year 2018. The third and final table describes the situation of
+energy consumption in the United States in 2018. We turn this information into
+three data visualization including: Washington’s goal with the present energy
+levels, Washington’s renewable energy consumption compared to other states in
+the U.S., and the trend of renewable energy consumption percentage (2018) in
+Washington compared to other states.
 
 ## Summary
 ```{r get_summary_info, echo = FALSE}
@@ -59,7 +73,7 @@ energy consumption per total energy consumption standing at
 `r info$wa_consum$wa_ren_consum_per_total` percent. Here we can clearly see that
 renewable energy consumption in Washington is much higher than the national
 average, and renewable energy consumption per total energy consumption is only
-slightly lower than that of Oregon, which has the highest. Hence, we can see 
+slightly lower than that of Oregon, which has the highest. Hence, we can see
 that the Washington population is more than willing to move towards renewable
 energy means and practices.
 ```{r, echo=FALSE, include=FALSE}
@@ -77,14 +91,20 @@ kable(a, digits = 2, format = "html", row.names = FALSE) %>%
                 position = "left") %>%
   scroll_box(height = "300px")
 ```
-`*This table assumes that all forms of sun, wind, water, waste, and biomass energy sources are renewable.
+`*This table assumes that all forms of sun, wind, water, waste, and biomass
+energy sources are renewable.
 
-Over the course of 17 years, Washington's renewable energy sources (excluding hydropower) generated <20% of the state's energy. The table reveals that without hydropower, Washington can only sustain <5% of Washington's energy requirement. This information is important as Gov. Jay Inslee pledged that Washington would achieve 100% carbon-neutral power by 2030. Without hydropower, Washington would have to look increase energy development efforts and look for alternative sources of power.
-
-
+Over the course of 17 years, Washington's renewable energy sources
+(excluding hydropower) generated <20% of the state's energy. The table reveals
+that without hydropower, Washington can only sustain <5% of Washington's energy
+requirement. This information is important as Gov. Jay Inslee pledged that
+Washington would achieve 100% carbon-neutral power by 2030. Without hydropower,
+Washington would have to look increase energy development efforts and look for
+alternative sources of power.
 
 #### Table 2: *Energy Consumption Percentages in individual US States 2018*
-This table assumes that all forms of sun, wind, water, and biomass energy sources are renewable.
+This table assumes that all forms of sun, wind, water, and biomass energy
+sources are renewable.
 ```{r, echo=FALSE}
 library("kableExtra")
 kable(b, digits = 2, format = "html", row.names = FALSE) %>%
@@ -95,9 +115,13 @@ kable(b, digits = 2, format = "html", row.names = FALSE) %>%
   scroll_box(height = "300px")
 ```
 
-In 2018, the United States evaluated the amount of energy used by each state by British thermal units (BTU). There is no dominant renewable energy source type as energy produced by biomass and WWS are to some use in all states. The same idea applies to petroleum usage and other nonrenewable energy sources. The table reveals that nuclear energy is larger in larger states. In the entire continent, Mississippi (3.62%) had the least amount of its energy produced by renewable sources and Oregon (44.44%) with the most renewable energy.
-
-
+In 2018, the United States evaluated the amount of energy used by each state by
+British thermal units (BTU). There is no dominant renewable energy source type
+as energy produced by biomass and WWS are to some use in all states. The same
+idea applies to petroleum usage and other nonrenewable energy sources. The table
+reveals that nuclear energy is larger in bigger states. In the entire continent,
+Mississippi (3.62%) had the least amount of its energy produced by renewable
+sources and Oregon (44.44%) with the most renewable energy.
 
 #### Table 3: *Energy Consumption Percentages in the USA 2018*
 ```{r,echo=FALSE}
@@ -109,9 +133,15 @@ kable(c, digits = 2, format = "html", row.names = FALSE) %>%
                 position = "left") %>%
   scroll_box(height = "300px")
 ```
-This table tracks the energy consumption per billion BTUs. Over the last 30 years it is observed that the US's renewable energy production fluctuates around the 20-30% range (see percentage renewable energy (out of total)). The renewable energy consupmtion grows relative to the increase in total energy consumption. Nuclear energy consumption is comparable to biomass energy consumption, whereas wind, water and sun energy (WWS) consumption is greater than both. The US may shift their focus to expanding multiple energy sources like nuclear energy and WWS to meet and hopefully completely fulfill the growing demand for energy.
-
-
+This table tracks the energy consumption per billion BTUs. Over the last 30
+years, it is observed that the US's renewable energy production fluctuates
+around the 20-30% range (see percentage renewable energy (out of total)). The
+renewable energy consumption grows relative to the increase in total energy
+consumption. Nuclear energy consumption is comparable to biomass energy
+consumption, whereas wind, water and sun energy (WWS) consumption is greater
+than both. The US may shift their focus to expanding multiple energy sources
+like nuclear energy and WWS to meet and hopefully completely fulfill the growing
+demand for energy.
 
 ## Three Charts
 
@@ -121,7 +151,13 @@ source("scripts/chart_1.R")
 suppressWarnings(plot(chart_1(energy_per_src_wa)))
 ```
 
-The scatter plot precisely tracks the trend of both nonrenewable and renewable energy consumption in WA to see whether sufficients improvements have been made. We are making this chart to verify whether Washington is on track to achieve 100% carbon-neutral power by 2030. The plot depicts an increase in renewable energy sources, however, it flatlines from 2013-2017. Renewable energy points are seen to have a steady increase in 2015-2017. The trend line hints that renewable energy production is increasing, but steadily.
+The scatter plot precisely tracks the trend of both nonrenewable and renewable
+energy consumption in WA to see whether sufficients improvements have been made.
+We are making this chart to verify whether Washington is on track to achieve
+100% carbon-neutral power by 2030. The plot depicts an increase in renewable
+energy sources, however, it flatlines from 2013-2017. Renewable energy points
+are seen to have a steady increase in 2015-2017. The trend line hints that
+renewable energy production is increasing, but only steadily.
 
 ### 2. Grouped Bar plot of Washington vs US Average's renewable energy consumption
 ```{r, echo=FALSE}
@@ -130,11 +166,12 @@ chart2 <- chart_2(energy_consumption_per_state)
 chart2
 ```
 
-I used a grouped bar plot of Washington vs US average(without Washington)'s
-renewable energy consumption since we wanted to know how Washington was doing
-and if we were on course with our consumption of renewable energy compared to
-the rest of the states.It could be easily observed that Washington on average
-uses more renewable energy.
+This is a grouped bar plot of Washington energy consumption vs US average
+(without Washington State) renewable energy consumption. The purpose of this
+chart is to understand how Washington State is doing and to check whether we are
+on course with our consumption of renewable energy when compared to the rest of
+the states. It could be easily observed that Washington on average uses more
+renewable energy.
 
 ### 3. Map of renewable energy consumption percentage
 ```{r, echo=FALSE}
@@ -143,8 +180,11 @@ chart3 <- draw_map(energy_per_state)
 chart3
 ```
 
-I used a map to show the percentage renewable energy is being consumed by each
-state since I thought it would be visually easier to see and compare each
-state. It could be seen from the map that Washington has one of the highest
-percentage of renewable energy usage in the United States. Each blue circle
-has a pop-up which you can click to see the exact percentage.
+This map shows the percentage of renewable energy being consumed by each
+state. The bigger the circle, the larger the percentage. Additionally, when you
+click on a blue circle, you will get a pop-up box which shows the exact
+percentage. The purpose of this map is to allow the reader to visually compare
+different U.S states with each other. The map lets the reader comprehend the
+information in a simplistic manner. Nonetheless, one key inference from this map
+is that Washington has one of the highest percentage of renewable energy usage
+in the United States.
