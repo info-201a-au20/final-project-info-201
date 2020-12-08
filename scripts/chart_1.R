@@ -1,6 +1,7 @@
 # exhausted all options to suppress ggplot warning. unable to solve.
 library("ggplot2", warn.conflicts = FALSE)
 options(ggplot2.summarise.inform = FALSE)
+library(dplyr)
 options(warn = -1)
 rm(list = ls())
 
@@ -46,3 +47,5 @@ chart_1 <- function(energy_per_src_wa) {
   scale_y_continuous(limits = c(0, 1))
   return(plot_3)
 }
+
+plot_3
