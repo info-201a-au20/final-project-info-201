@@ -100,8 +100,66 @@ chart1_panel <- tabPanel(
   )
 )
 
+summary <- tabPanel(
+  "Summary",
+  tags$h2("Takeaway #1: Washington State is highly dependent on
+          Hydroelectricity"),
+  tags$p("In this graph, one can not only compare the US renewable energy
+         consumption of Washington State to that of The United States but notice
+         how much hydroelectricity energy Washington State consumes when
+         compared to other renewable energy types. It is almost 7 times the next
+         highest renewable energy type."),
+  tags$img(src="../img/final_project_pic_one.jpg"),
+  tags$p("Although having such a high amount of hydroelectricity promotes
+         sustainability in terms of consuming renewable energy, it also shows
+         the lack of diverse consumption of other renewable energy types.
+         Washington has virtually no solar energy consumption and has a nuclear
+         energy consumption that is almost half of that of the US average. For
+         Washington state to attain 100% carbon neutrality by 2030, there might
+         be needed an increase of focus towards increasing the amount of energy
+         consumption of other renewable energy types, namely Solar, Geothermal,
+         Nuclear Energy, etc."),
+  
+  tags$h2("Takeaway #2: Most US States have a smaller renewable energy
+          consumption by total energy consumption percent than Washington
+          State"),
+  tags$p("In this map, the larger the size of the circle, the larger the amount
+         of renewable energy consumption by total consumption percent. By
+         viewing this, one can infer that Northwest, Northeast and North-Middle
+         of the United States have much bigger circles than that of anywhere
+         else in the United States. States near the Gulf of Mexico and Alaska
+         have considerably less percent of renewable energy consumption by total
+         energy consumption."),
+  tags$img(src="../img/final_project_pic_two.jpg"),
+  tags$p("If the United States intends to move more towards becoming a carbon
+         neutral country in the next few decades, it would be a tough task for
+         states such as the ones near the Gulf of Mexico to transition towards
+         consuming renewable energy, since they must increase their renewable
+         energy consumption by a considerable amount to catch up with the
+         Northeast and Northwest states such as Washington and Oregon. Hence,
+         the government might have to incentivize such states to consume
+         renewable energy for US to become a carbon neutral country"),
+  
+  tags$h2("Takeaway #3: Washington State seems to be on course to be carbon
+          neutral by 2030"),
+  tags$p("Since 2000, the renewable energy consumption in Washington State has
+         been steadily increasing, with nonrenewable energy consumption
+         gradually decreasing. However, both trendlines seem to have become
+         flat since 2015."),
+  tags$img(src="../img/final_project_pic_three.jpg"),
+  tags$p("This chart is essential to check whether Washington state will be
+         carbon neutral by 2030. Although the trendline since 2015 is not
+         encouraging, the cumulative effort of increasing renewable energy
+         consumption over the last twenty years will certainly play a crucial
+         role in terms of allowing Washington state to smoothly transition
+         towards a renewable energy future in the coming decade. Moreover, the
+         decrease of nonrenewable energy consumption since 2000 is also a sign
+         of optimism.")
+)
+
 ui <- navbarPage(
   "Renewable Energy: WA and Beyond",
   intro,
-  chart1_panel
+  chart1_panel,
+  summary
 )
