@@ -109,7 +109,7 @@ summary <- tabPanel(
          how much hydroelectricity energy Washington State consumes when
          compared to other renewable energy types. It is almost 7 times the next
          highest renewable energy type."),
-  tags$img(src="../img/final_project_pic_one.jpg"),
+  tags$img(src="../img/final_project_pic_one.jpg", align = "right"),
   tags$p("Although having such a high amount of hydroelectricity promotes
          sustainability in terms of consuming renewable energy, it also shows
          the lack of diverse consumption of other renewable energy types.
