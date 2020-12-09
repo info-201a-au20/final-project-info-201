@@ -91,10 +91,11 @@ chart1_plot <- mainPanel(
   br(),
   br(),
   tags$p("The scatter plot precisely tracks the trend of both nonrenewable and
-         renewable energy consumption in WA to see whether sufficient
-         improvements have been made. We are making this chart to verify whether
-         Washington is on track to achieve 100% carbon-neutral power by 2030.
-         The plot depicts an increase in renewable energy sources, however,
+         renewable energy consumption in WA. It answers the question whether
+         sufficient improvements have been made to become independent of
+         nonrenewable energy. This chart verifies that Washington is on track
+         to achieve 100% carbon-neutral power by 2030.
+         It depicts a trending increase in renewable energy sources, however,
          it flatlines from 2013-2017. Renewable energy points are seen to
          have a steady increase in 2015-2017. The trend line hints that
          renewable energy production is increasing, but only steadily.")
