@@ -42,9 +42,7 @@ intro_p <- mainPanel(
          are calling for a quicker transition to a cleaner energy source.
          Moreover, research and think tanks claim that renewable energy not
          only makes people happier, but also richer",
-         tags$a(href = "https://www.climatechangenews.com/2016/01/16/renewables-happier-richer-world/",
-                "[1]"), "."),
-  
+         tags$a(href = "https://www.climatechangenews.com/2016/01/16/renewables-happier-richer-world/",                "[1]"), "."),
   tags$p("This project takes an objective look at Washington State's transition
          to clean energy and verifies if they have been effective in achieving
          its' goal to capture more renewable energy",
@@ -73,7 +71,7 @@ intro_facts <- sidebarPanel(
                      Particularly, the surge in consumption of energy, goods,
                      and more accelerated warming to an unprecendented
                      rate",
-                     tags$a(href = "https://climate.nasa.gov/evidence/","[3]"
+                     tags$a(href = "https://climate.nasa.gov/evidence/", "[3]"
                      ), "."))
   )
 )
@@ -108,9 +106,7 @@ chart1_select <- sidebarPanel(
   # select energy type
   "Energy Consumption in WA",
   energy_select("sel_eng1", "Nonrenewable"),
-  
   energy_select("sel_eng2", "RE_Percent_w_Hydro"),
-  
   energy_select("sel_eng3", "RE_Percent_w_o_Hydro")
 )
 
@@ -203,7 +199,7 @@ chart3_plot <- mainPanel(
   width = 12,
   fluidRow(
     column(width = 12,
-           dataTableOutput('chart3')
+           dataTableOutput("chart3")
     )
   ),
   br(),
@@ -211,15 +207,15 @@ chart3_plot <- mainPanel(
   tags$p("This table allows to filter and arrange depending on the user's
          interest in category. It allows the user to explicitly search and
          find out which state has been using particular type of energy. The
-         user could rank the state's consumption on a type of energy to 
-         compare how that state is doing in comparison to another state of 
-         interest. For example, Hawaii uses 0.2 of Natural Gas compared to 
+         user could rank the state's consumption on a type of energy to
+         compare how that state is doing in comparison to another state of
+         interest. For example, Hawaii uses 0.2 of Natural Gas compared to
          Texas' 4564.1")
 )
 
 chart3_panel <- tabPanel(
   "Energy Consumption Percentages",
-  mainPanel = 
+  mainPanel =
   "energy",
     chart3_plot
 )
@@ -288,7 +284,7 @@ summary <- tabPanel(
 )
 
 ui <-  tagList(
-  includeCSS("style.css"), 
+  includeCSS("style.css"),
   navbarPage(
     "Renewable Energy: WA and Beyond",
     intro,

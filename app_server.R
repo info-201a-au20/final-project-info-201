@@ -93,13 +93,12 @@ energy_chart3 <-
 # output
 
 server <- function(input, output) {
-  
   output$chart1 <- renderPlotly({
     p <- plot_ly(energy_plot, x = ~ Year, y = ~ get(input$sel_eng1),
                  type = "scatter", mode = "lines+markers",
                  name = gsub("Perc_", "", input$sel_eng1),
-                 hovertemplate = paste('<i>Percent</i>: %{y:.2f}',
-                                       '<br><b>Year</b>: %{x}<br>'),
+                 hovertemplate = paste("<i>Percent</i>: %{y:.2f}",
+                                       "<br><b>Year</b>: %{x}<br>"),
                  connectgaps = TRUE) %>%
       add_trace(y = ~ get(input$sel_eng2), type = "scatter",
                 mode = "lines+markers",
@@ -118,11 +117,9 @@ server <- function(input, output) {
       )
     return(p)
   })
-  
   output$chart2 <- renderLeaflet({
     var <- energy_chart2 %>%
       pull(get(input$type1))
-    
     map_us <- leaflet(data = energy_chart2) %>%
       addProviderTiles("CartoDB.Positron") %>%
       addCircleMarkers(
@@ -140,18 +137,16 @@ server <- function(input, output) {
       )
     return(map_us)
   })
-  
   output$chart3 <- renderDataTable(
     energy_chart3 %>% select(1, 16:23),
     options = list(
       pageLength = 10,
       class = "display nowrap compact",
       filter = "top",
-      lengthMenu = list(c(10, 25, -1), c('10', '25', 'ALL')),
+      lengthMenu = list(c(10, 25, -1), c("10", "25", "ALL")),
       scrollX = TRUE
     )
   )
-  
   output$chart4 <- renderDataTable(
     colors <- c("Renewable Energy w/ Hydro" = "darkgreen",
                 "Nonrenewable Energy" = "red"),
@@ -189,5 +184,3 @@ energy_chart4 <-
   mutate("RE_Percent_w_o_Hydro" = (sum(Biomass, Wind,
                                        Other_Renewables, Waste) / Total)) %>%
   mutate("RE_Percent_w_Hydro" = (RE_Consumed_w_Hydro / Total))
-  
-
