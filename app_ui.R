@@ -28,6 +28,8 @@ energy_select <- function(id, initial_val) {
 
 intro_p <- mainPanel(
   tags$img(src="Wild_horse_wind_turbines.jpg", height = "80%", width = "80%"),
+  br(),
+  br(),
   tags$p("\t", tags$a(href="https://mahb.stanford.edu/library-item/fossil-fuels-run/",
                 "As the world's non-renewable energy sources are quickly
                 depleting,"),
@@ -45,14 +47,15 @@ intro_p <- mainPanel(
          to clean energy and verifies if they have been effective in achieving
          its' goal to capture more renewable energy",
          tags$a(href = 'https://www.governor.wa.gov/news-media/state-pursues-new-smart-grid-projects-capture-store-more-solar-and-wind-power',
-                "[2]"), "Additionally, this project will inform how much of the
-         United States is dependent on nonrenewable resources. Hopefully, the
-         inevitable shift towards renewable energy and its potential for
-         widespread improvement of welfare will be achieved soon.")
+                "[2]"), ". Additionally, this project will inform how much of
+                the United States is dependent on nonrenewable resources.
+                Hopefully, the inevitable shift towards renewable energy and
+                its potential for widespread improvement of welfare will
+         be achieved soon.")
 )
 
 intro_facts <- sidebarPanel(
-  tags$h3("Fun Facts About Climate Change"),
+  tags$h4("Fun Facts About Climate Change"),
   tags$ul(
     tags$li(helpText("The U.N. warns that humans have 10 years to make
                      a decisive change before climate change is completely ",
