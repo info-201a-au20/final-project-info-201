@@ -102,8 +102,10 @@ chart1_panel <- tabPanel(
 
 summary <- tabPanel(
   "Summary",
-  tags$h2("Takeaway #1: Washington State is highly dependent on
-          Hydroelectricity"),
+  tags$h1("Main Takeaways"),
+  
+  tags$h2("1. Washington State is highly dependent on
+          hydroelectricity"),
   tags$p("In this graph, one can not only compare the US renewable energy
          consumption of Washington State to that of The United States but notice
          how much hydroelectricity energy Washington State consumes when
@@ -117,10 +119,10 @@ summary <- tabPanel(
          energy consumption that is almost half of that of the US average. For
          Washington state to attain 100% carbon neutrality by 2030, there might
          be needed an increase of focus towards increasing the amount of energy
-         consumption of other renewable energy types, namely Solar, Geothermal,
-         Nuclear Energy, etc."),
+         consumption of other renewable energy types, mainly solar, geothermal,
+         nuclear energy, etc."),
   
-  tags$h2("Takeaway #2: Most US States have a smaller renewable energy
+  tags$h2("2. Most US States have a smaller renewable energy
           consumption by total energy consumption percent than Washington
           State"),
   tags$p("In this map, the larger the size of the circle, the larger the amount
@@ -140,7 +142,7 @@ summary <- tabPanel(
          the government might have to incentivize such states to consume
          renewable energy for US to become a carbon neutral country"),
   
-  tags$h2("Takeaway #3: Washington State seems to be on course to be carbon
+  tags$h2("3. Washington State seems to be on course to be carbon
           neutral by 2030"),
   tags$p("Since 2000, the renewable energy consumption in Washington State has
          been steadily increasing, with nonrenewable energy consumption
