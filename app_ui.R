@@ -2,6 +2,8 @@
 library(plotly)
 library(shiny)
 
+# plot_1 input function
+
 energy_select <- function(id, initial_val) {
   selectInput(
     inputId = id,
@@ -22,10 +24,13 @@ energy_select <- function(id, initial_val) {
   )
 }
 
+# Introduction Code
+
 intro_p <- mainPanel(
   tags$img(src="Wild_horse_wind_turbines.jpg", height = "80%", width = "80%"),
   tags$p(tags$a(href="https://mahb.stanford.edu/library-item/fossil-fuels-run/",
-                "As the world's non-renewable energy sources are quickly depleting,"),
+                "As the world's non-renewable energy sources are quickly
+                depleting,"),
          "tech pioneers and government bodies around the globe are pursuitng
          renewable energy as a means to sustain future energy demands. As global
          warming further presents itself as a universal threat (in addition to
@@ -34,12 +39,12 @@ intro_p <- mainPanel(
          Moreover, research and think tanks claim that renewable energy not
          only makes people happier, but also richer",
          tags$a(href ="https://www.climatechangenews.com/2016/01/16/renewables-happier-richer-world/",
-                "[1]"), "."), 
+                "[1]"), "."),
   
   tags$p("This project takes an objective look at Washington State's transition
          to clean energy and verifies if they have been effective in achieving
          its' goal to capture more renewable energy",
-         tags$a('https://www.governor.wa.gov/news-media/state-pursues-new-smart-grid-projects-capture-store-more-solar-and-wind-power',
+         tags$a(href = 'https://www.governor.wa.gov/news-media/state-pursues-new-smart-grid-projects-capture-store-more-solar-and-wind-power',
                 "[2]"), "Additionally, this project will inform how much of the
          United States is dependent on nonrenewable resources. Hopefully, the
          inevitable shift towards renewable energy and its potential for
@@ -52,7 +57,8 @@ intro_facts <- sidebarPanel(
            before climate change is completely ",
            tags$a(href="https://www.un.org/press/en/2019/ga12131.doc.htm",
                   "irreversible.")),
-  helpText("In 2018, the USA accounted for 15% of the world's CO2 emissions, ", tags$a(href="https://www.ucsusa.org/resources/each-countrys-share-co2-emissions", "releasing 5.41 gigatons into the atmosphere.")),
+  helpText("In 2018, the USA accounted for 15% of the world's CO2 emissions, ",
+           tags$a(href="https://www.ucsusa.org/resources/each-countrys-share-co2-emissions", "releasing 5.41 gigatons into the atmosphere.")),
   helpText("Fact 3 that validates a conspiracy that the moon contains all of the
            resources humans ever need to produce cheese for the rest of time")
 )
@@ -64,6 +70,8 @@ intro <- tabPanel(
     intro_facts
   )
 )
+
+# Chart 1 or Interaction Page 1 Code
 
 chart1_plot <- mainPanel(
   plotlyOutput("chart1"),
@@ -99,6 +107,8 @@ chart1_panel <- tabPanel(
     chart1_select
   )
 )
+
+# Summary Code
 
 summary <- tabPanel(
   "Summary",
