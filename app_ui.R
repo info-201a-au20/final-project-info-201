@@ -195,7 +195,7 @@ energy_type2 <- function(id, initial_value) {
 }
 
 chart3_plot <- mainPanel(
-  h2("Energy Consumption by State"),
+  h2("Energy Consumption by State in BTU (British Thermal unit)"),
   width = 12,
   fluidRow(
     column(width = 12,
@@ -209,12 +209,12 @@ chart3_plot <- mainPanel(
          find out which state has been using particular type of energy. The
          user could rank the state's consumption on a type of energy to
          compare how that state is doing in comparison to another state of
-         interest. For example, Hawaii uses 0.2 of Natural Gas compared to
-         Texas' 4564.1")
+         interest. For example, Hawaii uses the least with 0.2BTU of Natural
+         Gas compared to Texas' 4564.1BTU")
 )
 
 chart3_panel <- tabPanel(
-  "Energy Consumption Percentages",
+  "Energy Consumption",
   mainPanel =
   "energy",
     chart3_plot

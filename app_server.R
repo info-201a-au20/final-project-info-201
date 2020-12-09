@@ -147,40 +147,4 @@ server <- function(input, output) {
       scrollX = TRUE
     )
   )
-  output$chart4 <- renderDataTable(
-    colors <- c("Renewable Energy w/ Hydro" = "darkgreen",
-                "Nonrenewable Energy" = "red"),
-    plot_3 <- ggplot(energy_per_src_wa, aes(x = Year)) +
-      geom_point(aes(y = RE_Percent_w_Hydro, color =
-                       "Renewable Energy w/ Hydro")) +
-      geom_smooth(aes(y = RE_Percent_w_Hydro)) +
-      geom_point(aes(y = NE_Percent, color =
-                       "Nonrenewable Energy")) +
-      geom_smooth(aes(y = NE_Percent)) +
-      labs(
-        x = "Year",
-        y = "(%)",
-        color = "Energy Types"
-      ) +
-      scale_color_manual(values = colors) +
-      ggtitle("Annual Energy Consumed in WA per Type (%)") +
-      scale_x_continuous(limits = c(2001, 2017)) +
-      scale_y_continuous(limits = c(0, 1)),
-    return(plot_3)
-  )
 }
-
-energy_chart4 <-
-  energy_per_src_wa %>%
-  mutate(target_2030 = 1) %>%
-  rowwise(Year) %>%
-  mutate("NE_Consumed" = sum(Coal, Natural_Gas,
-                             Nuclear, Petroleum)) %>%
-  mutate("RE_Consumed_w_Hydro" = sum(Hydropower, Biomass,
-                                     Wind, Other_Renewables, Waste)) %>%
-  mutate("RE_Consumed_w_o_Hydro" = sum(Biomass, Wind,
-                                       Other_Renewables, Waste)) %>%
-  mutate("NE_Percent" = ((NE_Consumed / Total))) %>%
-  mutate("RE_Percent_w_o_Hydro" = (sum(Biomass, Wind,
-                                       Other_Renewables, Waste) / Total)) %>%
-  mutate("RE_Percent_w_Hydro" = (RE_Consumed_w_Hydro / Total))
