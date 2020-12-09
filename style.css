@@ -8,6 +8,21 @@
                            color: #67b2fc; 
 }
 
+.navbar-default .navbar-brand {
+                         color: #ffffff;
+			 font-weight: bold;				
+}
+
+.navbar .nav > li > a, .navbar .nav > li {
+color:          white;
+text-shadow:    none;
+}
+
+.navbar .nav > li > a:hover, .navbar .nav > li > a:hover:first-letter { 
+color:          black;                      
+text-shadow:    none;
+}
+
 h2 {
   color: #00008b;
 }
@@ -17,5 +32,9 @@ h3 {
 }
 
 p {
-  color: #cd5c5c;
+  color: #113753;
+}
+
+a{
+  color: hotpink;
 }
