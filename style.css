@@ -1,9 +1,21 @@
 .navbar-default:hover {
-    background-color: #67b2fc;
+  background-color: #b0d8ff;
 }
 
-.navbar { background-color: #b0d8ff;
+.navbar { background-color: #67b2fc;
                            font-family: Arial;
                            font-size: 16px;
-                           color: #b0d8ff; 
+                           color: #67b2fc; 
+}
+
+h2 {
+  color: #00008b;
+}
+
+h3 {
+  color: #00008b;
+}
+
+p {
+  color: #cd5c5c;
 }

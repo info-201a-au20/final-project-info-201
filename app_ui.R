@@ -135,7 +135,7 @@ summary <- tabPanel(
   tags$h3("1. Washington State is highly dependent on
           hydroelectricity"),
   tags$p("In this graph, one can not only compare the US renewable energy
-         consumption of Washington State to that of The United States but notice
+         consumption of Washington State to that of the United States but notice
          how much hydroelectricity energy Washington State consumes when
          compared to other renewable energy types. It is almost 7 times the next
          highest renewable energy type."),
