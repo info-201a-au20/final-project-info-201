@@ -114,6 +114,7 @@ chart1_panel <- tabPanel(
   "Energy Consumption in WA (2001 - 2017)",
   titlePanel(title = "Percent of Total Energy Consumption in WA by Type
              (2001 - 2017)"),
+  br(),
   sidebarLayout(
     chart1_plot,
     chart1_select
