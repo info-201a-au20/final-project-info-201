@@ -27,10 +27,11 @@ energy_select <- function(id, initial_val) {
 # Introduction Code
 
 intro_p <- mainPanel(
-  tags$img(src="Wild_horse_wind_turbines.jpg", height = "80%", width = "80%"),
+  tags$img(src = "Wild_horse_wind_turbines.jpg", height = "80%", width = "80%"),
   br(),
   br(),
-  tags$p("\t", tags$a(href="https://mahb.stanford.edu/library-item/fossil-fuels-run/",
+  tags$p("\t",
+         tags$a(href = "https://mahb.stanford.edu/library-item/fossil-fuels-run/",
                 "As the world's non-renewable energy sources are quickly
                 depleting,"),
          "tech pioneers and government bodies around the globe are pursuitng
@@ -40,13 +41,13 @@ intro_p <- mainPanel(
          are calling for a quicker transition to a cleaner energy source.
          Moreover, research and think tanks claim that renewable energy not
          only makes people happier, but also richer",
-         tags$a(href ="https://www.climatechangenews.com/2016/01/16/renewables-happier-richer-world/",
+         tags$a(href = "https://www.climatechangenews.com/2016/01/16/renewables-happier-richer-world/",
                 "[1]"), "."),
   
   tags$p("This project takes an objective look at Washington State's transition
          to clean energy and verifies if they have been effective in achieving
          its' goal to capture more renewable energy",
-         tags$a(href = 'https://www.governor.wa.gov/news-media/state-pursues-new-smart-grid-projects-capture-store-more-solar-and-wind-power',
+         tags$a(href = "https://www.governor.wa.gov/news-media/state-pursues-new-smart-grid-projects-capture-store-more-solar-and-wind-power",
                 "[2]"), ". Additionally, this project will inform how much of
                 the United States is dependent on nonrenewable resources.
                 Hopefully, the inevitable shift towards renewable energy and
@@ -59,17 +60,17 @@ intro_facts <- sidebarPanel(
   tags$ul(
     tags$li(helpText("The U.N. warns that humans have 10 years to make
                      a decisive change before climate change is completely ",
-           tags$a(href="https://www.un.org/press/en/2019/ga12131.doc.htm",
+           tags$a(href = "https://www.un.org/press/en/2019/ga12131.doc.htm",
                   "irreversible."))),
     tags$li(helpText("In 2018, the
                      USA accounted for 15% of the world's CO2 emissions, ",
            tags$a(
-    href="https://www.ucsusa.org/resources/each-countrys-share-co2-emissions",
+    href = "https://www.ucsusa.org/resources/each-countrys-share-co2-emissions",
     "releasing 5.41 gigatons into the atmosphere."))),
     tags$li(helpText("Experts are more than 95% confident that
-                     global warming is the the result of human activity. 
+                     global warming is the the result of human activity.
                      Particularly, the surge in consumption of energy, goods,
-                     and more accelerated warming to an unprecendented 
+                     and more accelerated warming to an unprecendented
                      rate",
                      tags$a(href = "https://climate.nasa.gov/evidence/","[3]"
                      ), "."))
@@ -138,7 +139,7 @@ summary <- tabPanel(
          how much hydroelectricity energy Washington State consumes when
          compared to other renewable energy types. It is almost 7 times the next
          highest renewable energy type."),
-  tags$img(src="final_project_pic_one.png", height = "50%", width = "50%"),
+  tags$img(src = "final_project_pic_one.png", height = "50%", width = "50%"),
   tags$p("Although having such a high amount of hydroelectricity promotes
          sustainability in terms of consuming renewable energy, it also shows
          the lack of diverse consumption of other renewable energy types.
@@ -159,7 +160,7 @@ summary <- tabPanel(
          else in the United States. States near the Gulf of Mexico and Alaska
          have considerably less percent of renewable energy consumption by total
          energy consumption."),
-  tags$img(src="final_project_pic_two.png", height = "50%", width = "50%"),
+  tags$img(src = "final_project_pic_two.png", height = "50%", width = "50%"),
   tags$p("If the United States intends to move more towards becoming a carbon
          neutral country in the next few decades, it would be a tough task for
          states such as the ones near the Gulf of Mexico to transition towards
@@ -175,7 +176,7 @@ summary <- tabPanel(
          been steadily increasing, with nonrenewable energy consumption
          gradually decreasing. However, both trendlines seem to have become
          flat since 2015."),
-  tags$img(src="final_project_pic_three.png", height = "50%", width = "50%"),
+  tags$img(src = "final_project_pic_three.png", height = "50%", width = "50%"),
   tags$p("This chart is essential to check whether Washington state will be
          carbon neutral by 2030. Although the trendline since 2015 is not
          encouraging, the cumulative effort of increasing renewable energy
