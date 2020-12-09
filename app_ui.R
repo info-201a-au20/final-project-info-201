@@ -28,7 +28,7 @@ energy_select <- function(id, initial_val) {
 
 intro_p <- mainPanel(
   tags$img(src="Wild_horse_wind_turbines.jpg", height = "80%", width = "80%"),
-  tags$p(tags$a(href="https://mahb.stanford.edu/library-item/fossil-fuels-run/",
+  tags$p("\t", tags$a(href="https://mahb.stanford.edu/library-item/fossil-fuels-run/",
                 "As the world's non-renewable energy sources are quickly
                 depleting,"),
          "tech pioneers and government bodies around the globe are pursuitng
@@ -52,15 +52,25 @@ intro_p <- mainPanel(
 )
 
 intro_facts <- sidebarPanel(
-  "Fun Facts About Climate Change",
-  helpText("The U.N. warns that humans have 10 years to make a decisive change
-           before climate change is completely ",
+  tags$h3("Fun Facts About Climate Change"),
+  tags$ul(
+    tags$li(helpText("The U.N. warns that humans have 10 years to make
+                     a decisive change before climate change is completely ",
            tags$a(href="https://www.un.org/press/en/2019/ga12131.doc.htm",
-                  "irreversible.")),
-  helpText("In 2018, the USA accounted for 15% of the world's CO2 emissions, ",
-           tags$a(href="https://www.ucsusa.org/resources/each-countrys-share-co2-emissions", "releasing 5.41 gigatons into the atmosphere.")),
-  helpText("Fact 3 that validates a conspiracy that the moon contains all of the
-           resources humans ever need to produce cheese for the rest of time")
+                  "irreversible."))),
+    tags$li(helpText("In 2018, the
+                     USA accounted for 15% of the world's CO2 emissions, ",
+           tags$a(
+    href="https://www.ucsusa.org/resources/each-countrys-share-co2-emissions",
+    "releasing 5.41 gigatons into the atmosphere."))),
+    tags$li(helpText("Experts are more than 95% confident that
+                     global warming is the the result of human activity. 
+                     Particularly, the surge in consumption of energy, goods,
+                     and more accelerated warming to an unprecendented 
+                     rate",
+                     tags$a(href = "https://climate.nasa.gov/evidence/","[3]"
+                     ), "."))
+  )
 )
 
 intro <- tabPanel(
@@ -75,6 +85,8 @@ intro <- tabPanel(
 
 chart1_plot <- mainPanel(
   plotlyOutput("chart1"),
+  br(),
+  br(),
   tags$p("The scatter plot precisely tracks the trend of both nonrenewable and
          renewable energy consumption in WA to see whether sufficient
          improvements have been made. We are making this chart to verify whether
@@ -112,9 +124,9 @@ chart1_panel <- tabPanel(
 
 summary <- tabPanel(
   "Summary",
-  tags$h1("Main Takeaways"),
-  
-  tags$h2("1. Washington State is highly dependent on
+  tags$h2("Main Takeaways"),
+  br(),
+  tags$h3("1. Washington State is highly dependent on
           hydroelectricity"),
   tags$p("In this graph, one can not only compare the US renewable energy
          consumption of Washington State to that of The United States but notice
@@ -131,8 +143,8 @@ summary <- tabPanel(
          be needed an increase of focus towards increasing the amount of energy
          consumption of other renewable energy types, mainly solar, geothermal,
          nuclear energy, etc."),
-  
-  tags$h2("2. Most US States have a smaller renewable energy
+  br(),
+  tags$h3("2. Most US States have a smaller renewable energy
           consumption by total energy consumption percent than Washington
           State"),
   tags$p("In this map, the larger the size of the circle, the larger the amount
@@ -151,8 +163,8 @@ summary <- tabPanel(
          Northeast and Northwest states such as Washington and Oregon. Hence,
          the government might have to incentivize such states to consume
          renewable energy for US to become a carbon neutral country"),
-  
-  tags$h2("3. Washington State seems to be on course to be carbon
+  br(),
+  tags$h3("3. Washington State seems to be on course to be carbon
           neutral by 2030"),
   tags$p("Since 2000, the renewable energy consumption in Washington State has
          been steadily increasing, with nonrenewable energy consumption
@@ -169,9 +181,12 @@ summary <- tabPanel(
          of optimism.")
 )
 
-ui <- navbarPage(
-  "Renewable Energy: WA and Beyond",
-  intro,
-  chart1_panel,
-  summary
+ui <-  tagList(
+  includeCSS("style.css"), 
+  navbarPage(
+    "Renewable Energy: WA and Beyond",
+    intro,
+    chart1_panel,
+    summary
+  )
 )
