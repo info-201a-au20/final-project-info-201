@@ -128,6 +128,26 @@ chart1_panel <- tabPanel(
 )
 
 # chart 2
+
+energy_type <- function(id, initial_value) {
+  selectInput(
+    inputId = id,
+    label = "Select Energy Type",
+    choices = list("Coal",
+                   "Natural Gas",
+                   "Nuclear Electric Power",
+                   "Hydro Electric Waste",
+                   "Biodiesel",
+                   "Solar",
+                   "Wind",
+                   "Total Petroleum",
+                   "Total Fossil Fuel",
+                   "Total Biomass",
+                   "Total Renewable Energy"),
+    selected = initial_value
+  )
+}
+
 chart2_plot <- mainPanel(
   leafletOutput("chart2"),
   br(),
@@ -154,44 +174,9 @@ chart2_panel <- tabPanel(
   )
 )
 
-energy_type <- function(id, initial_value) {
-  selectInput(
-    inputId = id,
-    label = "Select Energy Type",
-    choices = list("Coal",
-                   "Natural Gas",
-                   "Nuclear Electric Power",
-                   "Hydro Electric Waste",
-                   "Biodiesel",
-                   "Solar",
-                   "Wind",
-                   "Total Petroleum",
-                   "Total Fossil Fuel",
-                   "Total Biomass",
-                   "Total Renewable Energy"),
-    selected = initial_value
-  )
-}
+
 
 # chart 3
-chart3_plot <- mainPanel(
-  h1("Energy Consumption Percentages by State"),
-  fluidRow(
-    column(width = 10,
-           dataTableOutput('chart3')
-    )
-  ),
-  br(),
-  br(),
-  tags$p("")
-)
-
-chart3_panel <- tabPanel(
-  "Energy Consumption Percentages",
-  mainPanel = 
-  "energy",
-    chart3_plot
-)
 
 energy_type2 <- function(id, initial_value) {
   selectInput(
@@ -212,6 +197,34 @@ energy_type2 <- function(id, initial_value) {
     selected = initial_value
   )
 }
+
+chart3_plot <- mainPanel(
+  h2("Energy Consumption by State"),
+  width = 12,
+  fluidRow(
+    column(width = 12,
+           dataTableOutput('chart3')
+    )
+  ),
+  br(),
+  br(),
+  tags$p("This table allows to filter and arrange depending on the user's
+         interest in category. It allows the user to explicitly search and
+         find out which state has been using particular type of energy. The
+         user could rank the state's consumption on a type of energy to 
+         compare how that state is doing in comparison to another state of 
+         interest. For example, Hawaii uses 0.2 of Natural Gas compared to 
+         Texas' 4564.1")
+)
+
+chart3_panel <- tabPanel(
+  "Energy Consumption Percentages",
+  mainPanel = 
+  "energy",
+    chart3_plot
+)
+
+
 
 # Summary Code
 

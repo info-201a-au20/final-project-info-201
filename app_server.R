@@ -5,6 +5,7 @@ library(dplyr)
 library(ggplot2)
 library(leaflet)
 library(kableExtra)
+library(scales)
 # Loading data
 
 energy_per_src_wa <- read.csv("data/electicity_supply_by_fuel_source_clean.csv",
@@ -54,6 +55,7 @@ energy_plot <-
   mutate("Perc_OtherRenew" = Other_Renewables / Total) %>%
   ungroup()
 
+# plot_2 coding
 energy_chart2 <-
   energy_per_state %>%
   mutate("Coal" = (Coal / Total) * 50) %>%
@@ -72,6 +74,7 @@ energy_chart2 <-
   mutate(lat) %>%
   ungroup()
 
+# plot_3 coding
 energy_chart3 <-
   energy_per_state %>%
   mutate("Coal" = (Coal)) %>%
@@ -117,6 +120,8 @@ server <- function(input, output) {
   })
   
   output$chart2 <- renderLeaflet({
+    var <- energy_chart2 %>%
+      pull(get(input$type1))
     
     map_us <- leaflet(data = energy_chart2) %>%
       addProviderTiles("CartoDB.Positron") %>%
@@ -128,9 +133,9 @@ server <- function(input, output) {
         fillOpacity = 0.6,
         popup = paste0(input$type1,
                        " takes up </br>",
-                       ~get(input$type1),
+                       round((var), digits = 2),
                        "% of the Total </br>",
-                       "energy consumption"
+                       "Energy Consumption"
         )
       )
     return(map_us)
