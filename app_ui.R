@@ -1,6 +1,7 @@
 # Libraries
 library(plotly)
 library(shiny)
+library(leaflet)
 
 # plot_1 input function
 
@@ -126,6 +127,92 @@ chart1_panel <- tabPanel(
   )
 )
 
+# chart 2
+chart2_plot <- mainPanel(
+  leafletOutput("chart2"),
+  br(),
+  br(),
+  tags$p("A map representation of the United States' energy consumption shows
+         the visual representation of each State's percentage of each type
+         of energy consumption compared to other States. It answers the question
+         whether Washington has been using more renewable energy compared to
+         other states in America.")
+)
+
+chart2_select <- sidebarPanel(
+  "Energy Consumption in US",
+  energy_type("type1", "Coal")
+)
+
+chart2_panel <- tabPanel(
+  "Types of Consumed Energy in US",
+  titlePanel("Percentage of each Type of Energy Consumed by State"),
+  br(),
+  sidebarLayout(
+    chart2_plot,
+    chart2_select
+  )
+)
+
+energy_type <- function(id, initial_value) {
+  selectInput(
+    inputId = id,
+    label = "Select Energy Type",
+    choices = list("Coal",
+                   "Natural Gas",
+                   "Nuclear Electric Power",
+                   "Hydro Electric Waste",
+                   "Biodiesel",
+                   "Solar",
+                   "Wind",
+                   "Total Petroleum",
+                   "Total Fossil Fuel",
+                   "Total Biomass",
+                   "Total Renewable Energy"),
+    selected = initial_value
+  )
+}
+
+# chart 3
+chart3_plot <- mainPanel(
+  h1("Energy Consumption Percentages by State"),
+  fluidRow(
+    column(width = 10,
+           dataTableOutput('chart3')
+    )
+  ),
+  br(),
+  br(),
+  tags$p("")
+)
+
+chart3_panel <- tabPanel(
+  "Energy Consumption Percentages",
+  mainPanel = 
+  "energy",
+    chart3_plot
+)
+
+energy_type2 <- function(id, initial_value) {
+  selectInput(
+    inputId = id,
+    label = "Select Energy Type",
+    choices = list("Coal",
+                   "Natural Gas",
+                   "Nuclear Electric Power",
+                   "Hydro Electric Waste",
+                   "Biodiesel",
+                   "Solar",
+                   "Wind",
+                   "Total Petroleum",
+                   "Total Fossil Fuel",
+                   "Total Biomass",
+                   "Total Renewable Energy",
+                   "Total Energy Consumed"),
+    selected = initial_value
+  )
+}
+
 # Summary Code
 
 summary <- tabPanel(
@@ -193,6 +280,8 @@ ui <-  tagList(
     "Renewable Energy: WA and Beyond",
     intro,
     chart1_panel,
+    chart2_panel,
+    chart3_panel,
     summary
   )
 )
