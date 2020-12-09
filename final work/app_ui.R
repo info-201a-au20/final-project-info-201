@@ -158,6 +158,7 @@ summary <- tabPanel(
 )
 
 ui <- navbarPage(
+  includeCSS("style.css"),
   "Renewable Energy: WA and Beyond",
   intro,
   chart1_panel,
