@@ -28,11 +28,14 @@ energy_select <- function(id, initial_val) {
 # Introduction Code
 
 intro_p <- mainPanel(
+  h2("An Uncertain Future: Renewable Energy in the USA"),
   tags$img(src = "Wild_horse_wind_turbines.jpg", height = "80%", width = "80%"),
   br(),
-  br(),
+  tags$p("Wind turbines in Wildhorse, WA.", style = "font-size: 11px;
+         font-style: italic; color: grey"),
   tags$p("\t",
-         tags$a(href = "https://mahb.stanford.edu/library-item/fossil-fuels-run/",
+         tags$a(
+           href = "https://mahb.stanford.edu/library-item/fossil-fuels-run/",
                 "As the world's non-renewable energy sources are quickly
                 depleting,"),
          "tech pioneers and government bodies around the globe are pursuitng
@@ -42,7 +45,7 @@ intro_p <- mainPanel(
          are calling for a quicker transition to a cleaner energy source.
          Moreover, research and think tanks claim that renewable energy not
          only makes people happier, but also richer",
-         tags$a(href = "https://www.climatechangenews.com/2016/01/16/renewables-happier-richer-world/",                "[1]"), "."),
+         tags$a(href = "https://www.climatechangenews.com/2016/01/16/renewables-happier-richer-world/", "[1]"), "."),
   tags$p("This project takes an objective look at Washington State's transition
          to clean energy and verifies if they have been effective in achieving
          its' goal to capture more renewable energy",
@@ -51,7 +54,15 @@ intro_p <- mainPanel(
                 the United States is dependent on nonrenewable resources.
                 Hopefully, the inevitable shift towards renewable energy and
                 its potential for widespread improvement of welfare will
-         be achieved soon.")
+         be achieved soon."),
+  tags$h3("Questions to answer:"),
+  tags$p(tags$ul(
+    tags$li("How far along is WA in achieving 100% renewable energy?"),
+    tags$li("How much energy of each type is consumed in each state
+            across the US?"),
+    tags$li("What is the dominant energy type for each state?")
+    )
+  )
 )
 
 intro_facts <- sidebarPanel(
