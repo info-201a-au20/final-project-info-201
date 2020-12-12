@@ -111,7 +111,7 @@ server <- function(input, output) {
       layout(xaxis = list(range = c(2000, 2018), title = "Years"),
              yaxis = list(range = c(0, 1),
                           title = "Amount of Total Energy Consumption
-                          <br> Consumed By Type"),
+                          Consumed By Type"),
              title = "Annual Energy Consumption Rates <br> By Source in WA",
              legend = list(title = list(text = "<b>Energy Types</b>"))
       )
